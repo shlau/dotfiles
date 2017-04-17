@@ -1,10 +1,15 @@
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
 let s:bundle_dir = expand('~/.config/nvim/bundle')
 let s:plugin_dir = s:bundle_dir . '/repos/github.com'
-let g:airline_theme='zenburn'
+let g:airline_theme='gruvbox'
 let g:deoplete#enable_at_startup = 1
 let g:python_host_prog = '/usr/bin/python'
-
+let g:netrw_liststyle = 3 " tree list view
+" let g:netrw_browse_split = 1 " split file tree
+let g:netrw_banner = 0 " get rid of file tree banner
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#whitespace#enabled = 0
 if dein#load_state(s:bundle_dir)
      call dein#begin(s:bundle_dir)
 
@@ -17,6 +22,7 @@ if dein#load_state(s:bundle_dir)
      call dein#add('neomake/neomake')
      call dein#add('dojoteef/neomake-autolint')
      call dein#add('vim-airline/vim-airline-themes')
+     call dein#add('ctrlpvim/ctrlp.vim.git')
 
      call dein#end()
      call dein#save_state()
@@ -49,16 +55,23 @@ filetype plugin indent on             "Enable plugins and indents by filetype
   set tabstop=2                                                                 
   set background=dark
   set clipboard+=unnamedplus " allow copy to system clipboard
+  set hidden
+  set confirm
 
   :color gruvbox
 
   " divider at column 80
   :hi ColorColumn ctermbg=236 guibg=none
-  highlight OverLength ctermbg=2
-  match OverLength /\%81v.\+/
+  " highlight OverLength ctermbg=2
+  " match OverLength /\%81v.\+/
 
   " disable arrow keys
   noremap <Up> <NOP>
   noremap <Down> <NOP>
   noremap <Left> <NOP>
   noremap <Right> <NOP>
+
+  " buffer navigation
+  nnoremap <C-n> :bn<CR>
+  nnoremap <C-b> :bN<CR>
+  nnoremap <C-x> :bd<CR>

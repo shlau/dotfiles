@@ -3,7 +3,7 @@ let s:bundle_dir = expand('~/.config/nvim/bundle')
 let s:plugin_dir = s:bundle_dir . '/repos/github.com'
 let g:airline_theme='gruvbox'
 let g:deoplete#enable_at_startup = 1
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/bin/python3'
 let g:netrw_liststyle = 3 " tree list view
 " let g:netrw_browse_split = 1 " split file tree
 let g:netrw_banner = 0 " get rid of file tree banner
@@ -12,15 +12,17 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#whitespace#enabled = 0
 if dein#load_state(s:bundle_dir)
      call dein#begin(s:bundle_dir)
-
      call dein#add(s:plugin_dir . '/Shougo/dein.vim')
+     call dein#add('https://github.com/xuhdev/vim-latex-live-preview.git')
+     call dein#add('https://github.com/lervag/vimtex.git')
+     call dein#add('https://github.com/vim-syntastic/syntastic.git')
      call dein#add('vim-airline/vim-airline')
 		 call dein#add('Shougo/deoplete.nvim')
      call dein#add('christoomey/vim-tmux-navigator')
      call dein#add('tpope/vim-commentary')
      call dein#add('morhetz/gruvbox')
      call dein#add('neomake/neomake')
-     call dein#add('dojoteef/neomake-autolint')
+     " call dein#add('dojoteef/neomake-autolint')
      call dein#add('vim-airline/vim-airline-themes')
      call dein#add('ctrlpvim/ctrlp.vim.git')
 
@@ -58,18 +60,19 @@ filetype plugin indent on             "Enable plugins and indents by filetype
   set hidden
   set confirm
 
-  :color gruvbox
+  :color apprentice
 
   " divider at column 80
-  :hi ColorColumn ctermbg=236 guibg=none
+  " :hi ColorColumn ctermbg=0 guibg=none
+  :hi ColorColumn ctermbg=236 guifg=#000000 "rgb=0,0,0
   " highlight OverLength ctermbg=2
   " match OverLength /\%81v.\+/
 
   " disable arrow keys
-  noremap <Up> <NOP>
-  noremap <Down> <NOP>
-  noremap <Left> <NOP>
-  noremap <Right> <NOP>
+  " noremap <Up> <NOP>
+  " noremap <Down> <NOP>
+  " noremap <Left> <NOP>
+  " noremap <Right> <NOP>
 
   " buffer navigation
   nnoremap <C-n> :bn<CR>

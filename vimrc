@@ -6,7 +6,7 @@ filetype plugin on
 
 "style and qol
 syntax on
-set title
+"set title
 set nocompatible
 set ai
 set nu
@@ -24,7 +24,6 @@ set t_Co=256
 color koehler
 
 "plugin config
-let g:ctrlp_cmd='CtrlP :pwd'
 let g:airline_theme='night_owl'
 
 "file tab completion
@@ -47,6 +46,7 @@ nnoremap <leader>f :find *
 nnoremap <leader>s :sfind *
 nnoremap <leader>v :vert sfind *
 nnoremap <leader>t :tabfind *
+nnoremap <leader>e :e %:p<C-z>
 
 "forgot to sudo before saving, workaround:  write to stdin, read from stdin, and write to current file
 "with root privileges

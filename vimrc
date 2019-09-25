@@ -2,11 +2,10 @@
 execute pathogen#infect()
 
 "filetype detection
-filetype plugin on
+filetype plugin indent on
 
 "style and qol
 syntax on
-"set title
 set nocompatible
 set ai
 set nu
@@ -31,6 +30,12 @@ set wildmenu
 set wildmode=list:full
 set wildcharm=<C-z>
 set wildignore=*.OLD,*.swp
+
+"split navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 "buffer navigation
 nnoremap <leader>b :buffer <C-z><S-Tab>

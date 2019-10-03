@@ -1,0 +1,14 @@
+# tmux meta key
+escape ^Bb
+
+# vim panel nav : alt + hjkl
+bindkey "\033\150" focus left
+bindkey "\033\152" focus down
+bindkey "\033\153" focus up
+bindkey "\033\154" focus right
+
+bind , title
+bind v split -v
+bind s split
+bind w windowlist
+
